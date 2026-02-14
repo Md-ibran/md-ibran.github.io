@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Md Ibran Alam | Backend Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070b14;--card:#0f1626;--text:#e6edf6;--muted:#aab8d4;--accent:#38bdf8;--accent2:#22c55e}
+body.light{--bg:#f5f7fb;--card:#ffffff;--text:#0b1220;--muted:#5b6b8b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins;background:var(--bg);color:var(--text);transition:.3s}
+canvas#bg{position:fixed;inset:0;z-index:-1}
+header{position:sticky;top:0;background:rgba(7,11,20,.7);backdrop-filter:blur(10px);border-bottom:1px solid #1c2740}
+.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 18px}
+.logo{font-weight:800;font-size:20px}
+nav a{color:var(--muted);margin:0 10px;text-decoration:none;font-weight:500}
+nav a:hover{color:white}
+.toggle{cursor:pointer;border:1px solid #22314f;padding:6px 10px;border-radius:8px}
+.hero{max-width:1100px;margin:40px auto;padding:40px 18px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.hero h1{font-size:46px;margin:0}
+.hero span.name{background:linear-gradient(90deg,#38bdf8,#60a5fa,#22c55e);-webkit-background-clip:text;color:transparent}
+.type{color:#22c55e;font-weight:600}
+.card{background:var(--card);border:1px solid #1f2a44;border-radius:16px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.section{max-width:1100px;margin:50px auto;padding:0 18px}
+.section-title{font-size:30px;font-weight:700;margin-bottom:20px}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.skill{background:#0e1a33;border:1px solid #22314f;border-radius:14px;padding:14px}
+.bar{height:10px;background:#0b1220;border-radius:10px;overflow:hidden}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,#38bdf8,#22c55e)}
+.timeline{border-left:2px solid #22314f;padding-left:20px}
+.timeline-item{margin-bottom:20px}
+.repo{transition:.3s}
+.repo:hover{transform:translateY(-6px)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+footer{text-align:center;padding:30px;color:var(--muted)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.grid,.skills{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<header>
+<div class="nav">
+<div class="logo">Md Ibran Alam</div>
+<nav>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#github">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="toggle" onclick="document.body.classList.toggle('light')">☀️/🌙</div>
+</div>
+</header>
+
+<section class="hero">
+<div>
+<h1>Hi, I'm <span class="name">Md Ibran Alam</span></h1>
+<div class="type" id="typing"></div>
+<p>Java Backend Developer building scalable APIs, microservices & secure enterprise systems using Spring Boot.</p>
+<a href="resume.pdf" download class="card">Download Resume</a>
+</div>
+<div class="card">
+<b>Profile Stats</b>
+<ul>
+<li>3+ Years Experience</li>
+<li>Microservices Architecture</li>
+<li>REST API & Security Expert</li>
+<li>AWS & Docker</li>
+</ul>
+</div>
+</section>
+
+<section id="skills" class="section">
+<h2 class="section-title">Skills</h2>
+<div class="skills">
+<div class="skill"><div style="display:flex;justify-content:space-between"><b>Java</b><span>90%</span></div><div class="bar"><span style="width:90%"></span></div></div>
+<div class="skill"><div style="display:flex;justify-content:space-between"><b>Spring Boot</b><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
+<div class="skill"><div style="display:flex;justify-content:space-between"><b>Microservices</b><span>80%</span></div><div class="bar"><span style="width:80%"></span></div></div>
+<div class="skill"><div style="display:flex;justify-content:space-between"><b>Hibernate/JPA</b><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
+<div class="skill"><div style="display:flex;justify-content:space-between"><b>MySQL</b><span>85%</span></div><div class="bar"><span style="width:85%"></span></div></div>
+<div class="skill"><div style="display:flex;justify-content:space-between"><b>Docker & AWS</b><span>75%</span></div><div class="bar"><span style="width:75%"></span></div></div>
+</div>
+</section>
+
+<section id="experience" class="section">
+<h2 class="section-title">Experience</h2>
+<div class="timeline">
+<div class="timeline-item"><b>Backend Developer</b><br>Spring Boot Microservices, REST APIs, JWT Security</div>
+<div class="timeline-item"><b>Real Estate Platform</b><br>Payment integration, logging, scalability</div>
+</div>
+</section>
+
+<section id="github" class="section">
+<h2 class="section-title">Projects</h2>
+<div class="grid" id="repoContainer"></div>
+</section>
+
+<section id="contact" class="section">
+<h2 class="section-title">Contact</h2>
+<div class="card" style="max-width:600px;margin:auto">
+<form id="contactForm" style="display:grid;gap:14px">
+<input id="name" placeholder="Your Name" required style="padding:12px;border-radius:10px;border:1px solid #22314f;background:#0b1220;color:white"/>
+<input id="email" placeholder="Email Address" required style="padding:12px;border-radius:10px;border:1px solid #22314f;background:#0b1220;color:white"/>
+<textarea id="message" placeholder="Write your message..." required style="padding:12px;border-radius:10px;border:1px solid #22314f;background:#0b1220;color:white;min-height:130px"></textarea>
+<button style="padding:12px;border:none;border-radius:10px;background:linear-gradient(90deg,#38bdf8,#22c55e);font-weight:600">Send Message</button>
+<div id="success" style="text-align:center;margin-top:6px"></div>
+</form>
+</div>
+</section>
+
+<footer>© 2026 Md Ibran Alam</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+// typing animation
+const roles=['Java Backend Developer','Spring Boot Developer','Microservices Engineer'];
+let i=0,j=0,cur='',del=false;function type(){cur=roles[i];document.getElementById('typing').textContent=cur.substring(0,j);if(!del&&j++===cur.length){del=true;setTimeout(type,1000);return;}if(del&&j--===0){del=false;i=(i+1)%roles.length;}setTimeout(type,del?40:80);}type();
+
+// particles
+const c=document.getElementById('bg'),ctx=c.getContext('2d');function resize(){c.width=innerWidth;c.height=innerHeight}resize();onresize=resize;let dots=Array.from({length:60},()=>({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6}));(function draw(){ctx.clearRect(0,0,c.width,c.height);dots.forEach(d=>{d.x+=d.vx;d.y+=d.vy;if(d.x<0||d.x>c.width)d.vx*=-1;if(d.y<0||d.y>c.height)d.vy*=-1;ctx.fillStyle='#38bdf8';ctx.fillRect(d.x,d.y,2,2)});requestAnimationFrame(draw)})();
+
+// email
+emailjs.init('CW7_JpNc5J7MFFHIF');
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();emailjs.send('service_6cbfsm2','template_gnz3kmh',{from_name:name.value,from_email:email.value,message:message.value}).then(()=>success.innerText='Sent!').catch(()=>success.innerText='Failed');});
+
+// github
+fetch('https://api.github.com/users/Md-ibran/repos').then(r=>r.json()).then(d=>{repoContainer.innerHTML='';d.slice(0,6).forEach(repo=>repoContainer.innerHTML+=`<div class='card repo'><h3>${repo.name}</h3><p>${repo.description||''}</p><a target='_blank' href='${repo.html_url}'>View</a></div>`)});
+</script>
+</body>
+</html>
